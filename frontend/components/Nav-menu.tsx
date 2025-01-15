@@ -2,46 +2,41 @@ import Link from "next/link";
 
 import {
   NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuIndicator,
   NavigationMenuItem,
   NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  NavigationMenuViewport,
+  NavigationMenuList, navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 
-import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
 
 export default function NavMenu() {
   return (
-    <div>
+    <div className="flex justify-items-center">
       <NavigationMenu>
-        <NavigationMenuList className="flex items-center font-sans font-medium font-semibold text-white">
+        <NavigationMenuList className="font-sans font-semibold text-gray-900 text-xl">
           <NavigationMenuItem>
             <Link href="/" legacyBehavior passHref>
-              <NavigationMenuLink >
+              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                 Home
               </NavigationMenuLink>
             </Link>
           </NavigationMenuItem>
           <NavigationMenuItem>
             <Link href="/blogs" legacyBehavior passHref>
-              <NavigationMenuLink >
+              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                 Blogs
               </NavigationMenuLink>
             </Link>
           </NavigationMenuItem>
           <NavigationMenuItem>
             <Link href="/about" legacyBehavior passHref>
-              <NavigationMenuLink >
-                About Me
+              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                About Us
               </NavigationMenuLink>
             </Link>
           </NavigationMenuItem>
           <NavigationMenuItem>
             <Link href="/contact" legacyBehavior passHref>
-              <NavigationMenuLink >
+              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                 Contact
               </NavigationMenuLink>
             </Link>
