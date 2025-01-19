@@ -9,6 +9,7 @@ import {
   PaginationPrevious,
 } from "@/components/ui/pagination";
 import {blogs} from "@/blogs"
+import BlogCard from "@/components/blogcard";
 
 export default async function AllBlogsPage() {
   try {
@@ -22,7 +23,7 @@ export default async function AllBlogsPage() {
         <h1 className="flex justify-center mt-10 font-semibold text-xl">
           All Blogs Page
         </h1>
-        <BlogsSkeleton blogs={blogs} />
+        <BlogsSkeleton blogs={blogs} blogCard={BlogCard} />
         <Pagination className="mb-5">
           <PaginationContent>
             <PaginationItem>

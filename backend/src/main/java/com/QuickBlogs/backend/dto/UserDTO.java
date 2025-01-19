@@ -7,7 +7,7 @@ import java.util.UUID;
  * Date: 1/16/25
  */
 public record UserDTO(
-        UUID id,
+        String id,
         String name,
         String email,
         String password,

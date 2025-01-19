@@ -29,4 +29,8 @@ public class UserService {
 
         return "user saved successfully";
     }
+
+    public User getById(String id) {
+        return userRepository.findById(id).orElseThrow(RuntimeException::new);
+    }
 }

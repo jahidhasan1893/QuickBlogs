@@ -21,7 +21,7 @@ public class Blog {
     @Id
     private String id;
     private String title;
-    private String author;
+    private User author;
     private String content;
     private String category;
     private String image;

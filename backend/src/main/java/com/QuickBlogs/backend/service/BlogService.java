@@ -2,6 +2,7 @@ package com.QuickBlogs.backend.service;
 
 import com.QuickBlogs.backend.dto.BlogDTO;
 import com.QuickBlogs.backend.model.Blog;
+import com.QuickBlogs.backend.model.User;
 import com.QuickBlogs.backend.repository.BlogRepository;
 import com.QuickBlogs.backend.util.BlogUtil;
 import lombok.AllArgsConstructor;
@@ -19,14 +20,15 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 public class BlogService {
     BlogRepository blogRepository;
+    UserService userService;
     BlogUtil blogUtil;
 
     @Transactional
-    public String add(BlogDTO blogDTO) {
+    public String add(BlogDTO blogDTO, User user) {
         Blog blog = new Blog(
                 blogDTO.id(),
                 blogDTO.title(),
-                "Md Jahid Hasan",
+                user,
                 blogDTO.content(),
                 blogDTO.category(),
                 blogDTO.image()
