@@ -1,11 +1,14 @@
 package com.QuickBlogs.backend.service;
 
 import com.QuickBlogs.backend.dto.UserDTO;
+import com.QuickBlogs.backend.enums.Role;
 import com.QuickBlogs.backend.model.User;
 import com.QuickBlogs.backend.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.ArrayList;
 
 /**
  * Author: Md Jahid Hasan
@@ -23,7 +26,9 @@ public class UserService {
                 userDTO.name(),
                 userDTO.email(),
                 userDTO.password(),
-                userDTO.profileImage()
+                userDTO.profileImage(),
+                Role.USER,
+                new ArrayList<>()
         );
         userRepository.save(user);
 

@@ -26,10 +26,11 @@ public class BlogController {
     public String add(@RequestBody BlogDTO blogDTO){
         return blogService.add(blogDTO);
     }
-    @PostMapping("/add-multiple")
-    public String add(@RequestBody List<BlogDTO> blogDTO){
-        return blogService.addMultiple(blogDTO);
-    }
+
+//    @PostMapping("/add-multiple")
+//    public String add(@RequestBody List<BlogDTO> blogDTO){
+//        return blogService.addMultiple(blogDTO);
+//    }
 
     @GetMapping("/")
     public List<Blog> getAll(){

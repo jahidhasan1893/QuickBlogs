@@ -23,9 +23,8 @@ export default function Profile() {
           <DropdownMenuLabel>My Account</DropdownMenuLabel>
           <DropdownMenuSeparator />
           <DropdownMenuItem><Link href="/profile">Profile</Link></DropdownMenuItem>
-          <DropdownMenuItem>Billing</DropdownMenuItem>
-          <DropdownMenuItem>Team</DropdownMenuItem>
-          <DropdownMenuItem>Subscription</DropdownMenuItem>
+          <DropdownMenuItem><Link href="/write/blog">Write blog</Link></DropdownMenuItem>
+          <DropdownMenuItem className="focus:bg-orange-600">Log Out</DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
     </div>

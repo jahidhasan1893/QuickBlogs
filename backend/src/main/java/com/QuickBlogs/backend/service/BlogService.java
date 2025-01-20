@@ -9,7 +9,9 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 /**
@@ -24,14 +26,14 @@ public class BlogService {
     BlogUtil blogUtil;
 
     @Transactional
-    public String add(BlogDTO blogDTO, User user) {
+    public String add(BlogDTO blogDTO) {
         Blog blog = new Blog(
-                blogDTO.id(),
+                UUID.randomUUID().toString(),
                 blogDTO.title(),
-                user,
+                null,
                 blogDTO.content(),
-                blogDTO.category(),
-                blogDTO.image()
+                blogDTO.image(),
+                new ArrayList<>()
         );
         blogRepository.save(blog);
         return "Blog published";
@@ -43,22 +45,22 @@ public class BlogService {
                 .collect(Collectors.toList());
     }
 
-    @Transactional
-    public String addMultiple(List<BlogDTO> blogDTOS) {
-        for(BlogDTO blogDTO: blogDTOS){
-            Blog blog = new Blog(
-                    blogDTO.id(),
-                    blogDTO.title(),
-                    "Md Jahid Hasan",
-                    blogDTO.content(),
-                    blogDTO.category(),
-                    blogDTO.image()
-            );
-            blogRepository.save(blog);
-        }
-
-        return "published all blogs";
-    }
+//    @Transactional
+//    public String addMultiple(List<BlogDTO> blogDTOS) {
+//        for(BlogDTO blogDTO: blogDTOS){
+//            Blog blog = new Blog(
+//                    blogDTO.id(),
+//                    blogDTO.title(),
+//                    null,
+//                    blogDTO.content(),
+//                    blogDTO.category(),
+//                    blogDTO.image()
+//            );
+//            blogRepository.save(blog);
+//        }
+//
+//        return "published all blogs";
+//    }
 
     public Blog getById(String id) {
         return blogRepository.findById(id).orElseThrow(RuntimeException::new);
